@@ -14,6 +14,7 @@ namespace Payments.Domain.Entity.Transactions
         public Card Card { get; set; }
         public decimal Amount { get; set; }
         public string RecipientCardNo { get; set; }
+        public string Pin2 { get; set; }
         public int StatusCode { get; set; }
         public string Message { get; set; }
         public string TrackingCode { get; set; }

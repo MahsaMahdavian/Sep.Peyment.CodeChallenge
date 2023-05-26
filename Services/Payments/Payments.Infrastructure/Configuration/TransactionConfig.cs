@@ -13,7 +13,11 @@ namespace Payments.Infrastructure.Configuration
     {
         public void Configure(EntityTypeBuilder<Transaction> builder)
         {
-            throw new NotImplementedException();
+            builder.Property(p => p.StatusCode).IsRequired();
+            builder.Property(p => p.Message).IsRequired();
+            builder.Property(p => p.RecipientCardNo).IsRequired();
+            builder.Property(p => p.Amount).IsRequired();
+        
         }
     }
 }

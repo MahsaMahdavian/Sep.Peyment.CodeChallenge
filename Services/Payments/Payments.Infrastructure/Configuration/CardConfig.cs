@@ -13,7 +13,11 @@ namespace Payments.Infrastructure.Configuration
     {
         public void Configure(EntityTypeBuilder<Card> builder)
         {
-            throw new NotImplementedException();
+            builder.Property(p=>p.CardNo).IsRequired().HasMaxLength(16);
+            builder.Property(p => p.Cvv2).IsRequired();
+            builder.Property(p => p.ExpireDate).IsRequired();
+
+
         }
     }
 }

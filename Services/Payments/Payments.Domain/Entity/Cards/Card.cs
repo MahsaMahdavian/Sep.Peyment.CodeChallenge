@@ -12,6 +12,7 @@ namespace Payments.Domain.Entity.Cards
         public int CardNo { get;  set; }
         public string Cvv2 { get;  set; }
         public DateTime ExpireDate { get;  set; }
-        //public int BankId { get; set; }
+        public decimal Credit { get; set; }
+   
     }
 }
