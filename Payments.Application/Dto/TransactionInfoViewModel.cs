@@ -1,15 +1,13 @@
-﻿using Payments.Domain.Entity.Accounts.ValueObject;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Payments.Infrastructure.ViewModel
+namespace Payments.Application.Dto
 {
-    public class BankingInputViewModel
-    {
-        public string CardNo { get; set; }
+    public class TransactionInfoViewModel
+    {     
         public string RecipientCardNo { get; set; }
         /// <summary>
 		/// رمز دوم (اينترنتی) کارت
@@ -18,6 +16,5 @@ namespace Payments.Infrastructure.ViewModel
         public string Cvv2 { get; set; }
         public DateTime ExpireDate { get; set; }
         public decimal Amount { get; set; }
-        public string CellPhoneNumber { get; set; }
     }
 }

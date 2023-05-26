@@ -1,4 +1,4 @@
-﻿using Payments.Infrastructure.ViewModel;
+﻿using Payments.Domain.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ namespace Payments.Application.Banks
 {
     public class Saman
     {
-        public BankingOutputViewModel Transaction(BankingInputViewModel bankingInputViewModel)
+        public async Task<BankingOutputViewModel> Transaction(BankingInputViewModel bankingInputViewModel)
         {
             return new BankingOutputViewModel { };
         }
