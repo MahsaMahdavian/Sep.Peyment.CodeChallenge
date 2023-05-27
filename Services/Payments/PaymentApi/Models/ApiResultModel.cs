@@ -1,4 +1,4 @@
-﻿namespace PaymentApi.Models
+﻿namespace Payments.PaymentApi.Models
 {
     record ApiResultModel
     {

@@ -1,4 +1,4 @@
-﻿using PaymentApi.Models;
+﻿using Payments.PaymentApi.Models;
 
 namespace PaymentApi.Extensions
 {

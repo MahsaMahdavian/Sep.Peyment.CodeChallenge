@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PaymentApi.Models;
+using PaymentApi.Extensions;
+using Payments.PaymentApi.Models;
 using Payments.Application.Dto;
 using Payments.Domain.ApplicationService;
 using Payments.Domain.Enum;
 using Payments.Domain.ViewModel;
 
-namespace PaymentApi
+namespace Payments.PaymentApi
 {
     abstract class Endpoints
     {
