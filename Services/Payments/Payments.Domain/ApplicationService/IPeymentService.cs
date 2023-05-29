@@ -1,5 +1,5 @@
 ﻿using Payments.Domain.Enum;
-using Payments.Domain.ViewModel;
+using Payments.Domain.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;

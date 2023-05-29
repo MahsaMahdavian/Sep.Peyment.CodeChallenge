@@ -1,5 +1,7 @@
 ﻿using Payments.Application.Services.BankServiceHandler;
 using Payments.Domain.Enum;
+using Payments.Domain.InfrustructureService;
+using Payments.Infrastructure.banksProvider;
 
 namespace Payments.Application
 {
@@ -9,10 +11,10 @@ namespace Payments.Application
         {          
             switch (bankType)
             {
-                case BankType.saman:return new SamanPayStrategy();
-                case BankType.mellat:return new MellatPayStrategy();
-                case BankType.ayande: return new AyandePayStrategy();
-                default: return new NonePayStrategy();
+                case BankType.saman:return new PayStrategy(new Saman());
+                case BankType.mellat:return new PayStrategy(new Mellat());
+                case BankType.ayande: return new PayStrategy(new Ayande());
+                default: return new PayStrategy();
             }
         }
     }

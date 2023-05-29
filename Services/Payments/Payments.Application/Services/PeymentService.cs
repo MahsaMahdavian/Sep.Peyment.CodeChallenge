@@ -1,6 +1,6 @@
 ﻿using Payments.Domain.ApplicationService;
 using Payments.Domain.Enum;
-using Payments.Domain.ViewModel;
+using Payments.Domain.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +13,7 @@ namespace Payments.Application.Services
     {
         public Task<BankingOutputViewModel> TransactionByCard(BankType bankType, BankingInputViewModel input)
         {
-            return PayFactory.Create(bankType).Run(input);
+            return PayFactory.Create(bankType).RunAsync(input);
         }
     }
 }

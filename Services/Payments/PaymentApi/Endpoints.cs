@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PaymentApi.Extensions;
 using Payments.PaymentApi.Models;
-using Payments.Application.Dto;
+using Payments.Application.ViewModels;
 using Payments.Domain.ApplicationService;
 using Payments.Domain.Enum;
-using Payments.Domain.ViewModel;
+using Payments.Domain.Dtos;
 
 namespace Payments.PaymentApi
 {
@@ -17,7 +17,7 @@ namespace Payments.PaymentApi
             {
                 Amount = model.Amount,
                 CardNo="6219861063383978",//it comes drom Cookie
-                CellPhoneNumber="09355854104",
+                CellPhoneNumber="111111111",
                 Cvv2=model.Cvv2,
                 ExpireDate=model.ExpireDate,
                 RecipientCardNo=model.RecipientCardNo,

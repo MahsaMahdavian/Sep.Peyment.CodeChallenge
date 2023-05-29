@@ -17,7 +17,12 @@ namespace Payments.Infrastructure.Configuration
             builder.Property(p => p.Message).IsRequired();
             builder.Property(p => p.RecipientCardNo).IsRequired();
             builder.Property(p => p.Amount).IsRequired();
-        
+            builder.HasOne(p => p.Card)
+                .WithMany()
+                .HasForeignKey(foreignKeyPropertyNames: "CardId")
+                .IsRequired(required: true)
+                ;
+
         }
     }
 }

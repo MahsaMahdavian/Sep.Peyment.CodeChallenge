@@ -10,7 +10,7 @@ namespace Payments.Domain.Entity.Transactions
 {
     public class Transaction:BaseEntity
     {
-        public int CardId { get; set; }
+        public Guid CardId { get; set; }
         public Card Card { get; set; }
         public decimal Amount { get; set; }
         public string RecipientCardNo { get; set; }

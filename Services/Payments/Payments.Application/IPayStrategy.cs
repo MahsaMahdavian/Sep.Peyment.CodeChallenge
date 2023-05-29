@@ -1,4 +1,4 @@
-﻿using Payments.Domain.ViewModel;
+﻿using Payments.Domain.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +9,6 @@ namespace Payments.Application
 {
     public interface IPayStrategy
     {
-        Task<BankingOutputViewModel> Run(BankingInputViewModel input);
+        Task<BankingOutputViewModel> RunAsync(BankingInputViewModel input,CancellationToken cancellationToken=default);
     }
 }
