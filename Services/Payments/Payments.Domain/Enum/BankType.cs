@@ -8,8 +8,8 @@ namespace Payments.Domain.Enum
 {
     public enum BankType
     {
-        mellat=610433,
-        saman= 621986,
-        ayande=636214
+        Mellat,
+        Saman,
+        Ayande
     }
 }

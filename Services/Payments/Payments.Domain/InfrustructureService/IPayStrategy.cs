@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Payments.Domain.InfrustructureService
 {
-    public interface IBankProvider
+    public interface IPayStrategy
     {
-        Task<BankingOutputViewModel> Transaction(BankingInputViewModel bankingInputViewModel);
+        Task<BankingOutputDto> RunAsync(BankingInputDto input, CancellationToken cancellationToken = default);
     }
 }

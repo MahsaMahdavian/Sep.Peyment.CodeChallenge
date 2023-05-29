@@ -11,9 +11,16 @@ namespace Payments.Application.Services
 {
     public class PeymentService : IPeymentService
     {
-        public Task<BankingOutputViewModel> TransactionByCard(BankType bankType, BankingInputViewModel input)
+        public PayFactory  _payFactory;
+        public PeymentService(PayFactory payFactory)
         {
-            return PayFactory.Create(bankType).RunAsync(input);
+
+            _payFactory = payFactory;
+
+        }
+        public Task<BankingOutputDto> TransactionByCard(BankType bankType, BankingInputDto input)
+        {
+            return _payFactory.Create(bankType).RunAsync(input);
         }
     }
 }

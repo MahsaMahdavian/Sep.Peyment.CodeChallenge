@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Payments.Domain.Dtos
 {
-    public class BankingOutputViewModel
+    public class BankingOutputDto
     {
         public int StatusCode { get; set; }
         public string Message { get; set; }

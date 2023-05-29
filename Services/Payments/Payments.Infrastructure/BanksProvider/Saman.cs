@@ -1,13 +1,30 @@
-﻿using Payments.Domain.InfrustructureService;
+﻿using Payments.Domain.Common;
+using Newtonsoft.Json;
+using System.Text;
 using Payments.Domain.Dtos;
+using Payments.Domain.InfrustructureService;
 
 namespace Payments.Infrastructure.banksProvider
 {
-    public class Saman: IBankProvider
+    public class Saman : IPayStrategy
     {
-        public async Task<BankingOutputViewModel> Transaction(BankingInputViewModel bankingInputViewModel)
+        private readonly HttpClient _client;
+        public Saman(HttpClient client)
         {
-            return new BankingOutputViewModel { };
+            _client = client;
+
+        }
+
+        public async Task<BankingOutputDto> RunAsync(BankingInputDto input, CancellationToken cancellationToken = default)
+        {
+            string jsonData = JsonConvert.SerializeObject(input);
+            HttpContent Content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = await _client.PostAsync("route", Content);
+            string responseContent = await response.Content.ReadAsStringAsync();
+            BankingOutputDto responseModel = JsonConvert.DeserializeObject<BankingOutputDto>(responseContent);
+
+            return responseModel;
         }
     }
 }

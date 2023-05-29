@@ -1,6 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
+using Payments.Domain.Common;
+using Payments.Domain.InfrustructureService;
 using Payments.Infrastructure;
+using Payments.Infrastructure.banksProvider;
 using Payments.PaymentApi;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,7 +17,27 @@ builder.Services.AddDbContext<DataBaseContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("Defult"));
 });
+
+builder.RegisterHTTPClient<Saman>((p, client) =>
+{
+    var options = p.GetRequiredService<IOptions<UrlOption>>();
+    client.BaseAddress = options.Value.SamanUrl;
+});
+builder.RegisterHTTPClient<Mellat>((p, client) =>
+{
+    var options = p.GetRequiredService<IOptions<UrlOption>>();
+    client.BaseAddress = options.Value.MellatUrl;
+});
+builder.RegisterHTTPClient<Ayande>((p, client) =>
+{
+    var options = p.GetRequiredService<IOptions<UrlOption>>();
+    client.BaseAddress = options.Value.AyandeUrl;
+});
+
+builder.AddApplication();
 var app = builder.Build();
+
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

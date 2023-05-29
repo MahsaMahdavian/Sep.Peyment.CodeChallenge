@@ -1,4 +1,4 @@
-﻿using Payments.Application.Services.BankServiceHandler;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Payments.Domain.Enum;
 using Payments.Domain.InfrustructureService;
 using Payments.Infrastructure.banksProvider;
@@ -7,15 +7,27 @@ namespace Payments.Application
 {
     public class PayFactory
     {
-        public static IPayStrategy Create(BankType bankType)
-        {          
+        private readonly IServiceProvider _serviceProvider;
+
+        public PayFactory(IServiceProvider serviceProvider)
+        {
+            _serviceProvider = serviceProvider;
+        }
+
+        public IPayStrategy Create(BankType bankType)
+        {
             switch (bankType)
             {
-                case BankType.saman:return new PayStrategy(new Saman());
-                case BankType.mellat:return new PayStrategy(new Mellat());
-                case BankType.ayande: return new PayStrategy(new Ayande());
+                case BankType.Saman: return ResolveSterategy<Saman>();
+                case BankType.Mellat: return ResolveSterategy<Ayande>();
+                case BankType.Ayande: return ResolveSterategy<Mellat>();
                 default: return new PayStrategy();
             }
+        }
+
+        private T ResolveSterategy<T>() where T : class, IPayStrategy
+        {
+            return _serviceProvider.GetRequiredService<T>();
         }
     }
 }

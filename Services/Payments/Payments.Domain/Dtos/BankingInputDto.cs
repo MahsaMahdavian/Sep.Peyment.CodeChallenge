@@ -1,6 +1,6 @@
 ﻿namespace Payments.Domain.Dtos
 {
-    public class BankingInputViewModel
+    public class BankingInputDto
     {
         public string CardNo { get; set; }
         public string RecipientCardNo { get; set; }

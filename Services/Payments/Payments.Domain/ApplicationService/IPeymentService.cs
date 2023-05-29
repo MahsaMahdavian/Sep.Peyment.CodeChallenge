@@ -10,7 +10,7 @@ namespace Payments.Domain.ApplicationService
 {
     public interface IPeymentService
     {
-        public Task<BankingOutputViewModel> TransactionByCard(BankType bankType, BankingInputViewModel input);
+        public Task<BankingOutputDto> TransactionByCard(BankType bankType, BankingInputDto input);
       
     }
 }

@@ -10,10 +10,10 @@ namespace Payments.PaymentApi
 {
     abstract class Endpoints
     {
-        public static Task<ApiResultModel<BankingOutputViewModel>> SendToPayment([FromBody] TransactionInfoViewModel model,[FromServices] IPeymentService service)
+        public static Task<ApiResultModel<BankingOutputDto>> SendToPayment([FromBody] TransactionInfoViewModel model,[FromServices] IPeymentService service)
         {
             //I should get BankType From MyCard that there isn't in model that user should choose I think it comes from Authenticate from Cookie or anything else
-            BankingInputViewModel bankingInputViewModel = new() 
+            BankingInputDto bankingInputViewModel = new() 
             {
                 Amount = model.Amount,
                 CardNo="6219861063383978",//it comes drom Cookie
@@ -23,7 +23,7 @@ namespace Payments.PaymentApi
                 RecipientCardNo=model.RecipientCardNo,
                 Pin2=model.Pin2
             };
-           return service.TransactionByCard(BankType.saman, bankingInputViewModel).ToResult();
+           return service.TransactionByCard(BankType.Ayande, bankingInputViewModel).ToResult();
         }
     }
 }
