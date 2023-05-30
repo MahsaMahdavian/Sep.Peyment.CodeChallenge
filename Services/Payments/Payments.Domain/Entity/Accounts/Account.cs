@@ -1,6 +1,7 @@
 ﻿using Payments.Domain.Entity.Accounts.ValueObject;
 using Payments.Domain.Entity.Base;
 using Payments.Domain.Entity.Cards;
+using Payments.Domain.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;

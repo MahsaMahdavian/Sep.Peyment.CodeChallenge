@@ -1,4 +1,5 @@
-﻿using Payments.Domain.Entity.Base;
+﻿using Payments.Domain.Entity.Accounts.ValueObject;
+using Payments.Domain.Entity.Base;
 using Payments.Domain.Entity.Cards;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ namespace Payments.Domain.Entity.Transactions
         public string Message { get; set; }
         public string TrackingCode { get; set; }
         public string PaymentIdentity { get; set; }
-       
+        
+
     }
 }

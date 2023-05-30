@@ -34,7 +34,7 @@ namespace Payments.PaymentApi
             {
                 return HttpPolicyExtensions
                 .HandleTransientHttpError()
-                .CircuitBreakerAsync(5, TimeSpan.FromSeconds(30));
+                .CircuitBreakerAsync(3, TimeSpan.FromSeconds(30));
             }
             IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
             {

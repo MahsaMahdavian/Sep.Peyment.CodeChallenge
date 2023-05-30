@@ -10,6 +10,7 @@ namespace Payments.Domain.Enum
     {
         Mellat,
         Saman,
-        Ayande
+        Ayande,
+        Unknown
     }
 }

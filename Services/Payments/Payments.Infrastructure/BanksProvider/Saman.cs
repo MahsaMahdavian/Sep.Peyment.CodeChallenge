@@ -12,9 +12,7 @@ namespace Payments.Infrastructure.banksProvider
         public Saman(HttpClient client)
         {
             _client = client;
-
         }
-
         public async Task<BankingOutputDto> RunAsync(BankingInputDto input, CancellationToken cancellationToken = default)
         {
             string jsonData = JsonConvert.SerializeObject(input);

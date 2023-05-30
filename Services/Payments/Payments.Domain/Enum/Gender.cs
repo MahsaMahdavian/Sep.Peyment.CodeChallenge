@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Payments.Domain.Entity.Accounts.ValueObject
+namespace Payments.Domain.Enum
 {
     public enum Gender
     {
