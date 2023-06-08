@@ -3,8 +3,8 @@ using PaymentApi.Extensions;
 using Payments.PaymentApi.Models;
 using Payments.Application.ViewModels;
 using Payments.Domain.ApplicationService;
-using Payments.Domain.Enum;
 using Payments.Domain.Dtos;
+using Payments.Domain.Entity.Accounts.ValueObject;
 
 namespace Payments.PaymentApi
 {
@@ -21,9 +21,10 @@ namespace Payments.PaymentApi
                 Cvv2=model.Cvv2,
                 ExpireDate=model.ExpireDate,
                 RecipientCardNo=model.RecipientCardNo,
-                Pin2=model.Pin2
+                Pin2=model.Pin2,
+                
             };
-           return service.TransactionByCard(BankType.Ayande, bankingInputViewModel).ToResult();
+           return service.TransactionByCard(BankType.Create(bankingInputViewModel.CardNo), bankingInputViewModel).ToResult();
         }
     }
 }

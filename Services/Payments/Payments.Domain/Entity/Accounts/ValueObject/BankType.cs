@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Payments.Domain.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -21,7 +22,7 @@ namespace Payments.Domain.Entity.Accounts.ValueObject
                 case "610433": return Enum.BankType.Mellat;
                 case "621986": return Enum.BankType.Saman;
                 case "636214": return Enum.BankType.Ayande;
-                default: return Enum.BankType.Unknown;
+                default: throw new BankTypeNotFoundException(cardNo);
             }
         }
         public string CardNo { get; set; }

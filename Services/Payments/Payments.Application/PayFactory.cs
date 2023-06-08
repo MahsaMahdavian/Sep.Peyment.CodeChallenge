@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Payments.Domain.Enum;
+using Payments.Domain.Exceptions;
 using Payments.Domain.InfrustructureService;
 using Payments.Infrastructure.banksProvider;
 
@@ -21,7 +22,7 @@ namespace Payments.Application
                 case BankType.Saman: return ResolveSterategy<Saman>();
                 case BankType.Mellat: return ResolveSterategy<Ayande>();
                 case BankType.Ayande: return ResolveSterategy<Mellat>();
-                default: return new PayStrategy();
+                default: throw new BankWasNotSupportedException(bankType);
             }
         }
 
